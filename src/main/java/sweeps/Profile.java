@@ -21,4 +21,8 @@ public class Profile implements Serializable{
         return owned;
     }
 
+    public Entity getEntityByID(){
+        for(Entity i : owned)
+    }
+
 }

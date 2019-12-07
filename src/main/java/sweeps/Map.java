@@ -4,11 +4,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Map implements Serializable {
 
     public static final int WORLD_HEIGHT = 10;
     public static final int WORLD_WIDTH = 10;
+
+    private static int entityNum = 0;
 
     private static Sector[][] sectors = new Sector[WORLD_HEIGHT][WORLD_WIDTH];
 
@@ -46,6 +49,22 @@ public class Map implements Serializable {
         if(x < WORLD_WIDTH && x >= 0 && y < WORLD_HEIGHT && y >= 0)
             return sectors[x][y];
         return new Sector(x, y);
+    }
+
+    public static ArrayList<Sector> getSectors(){
+        ArrayList<Sector> sectorList = new ArrayList<>();
+        for(Sector[] n : sectors){
+            for (Sector i : n){
+                sectorList.add(i);
+            }
+        }
+
+        return sectorList;
+    }
+
+    public static int generateEntityNum(){
+        entityNum++;
+        return entityNum;
     }
 
 }

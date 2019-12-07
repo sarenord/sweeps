@@ -5,6 +5,8 @@ public abstract class Entity {
     private int sectorX, sectorY;
     private String type;
     private float energy;
+    private int id;
+
 
     public Entity(int x, int y, int sectorX, int sectorY, String type) throws InvalidPositionException {
         this.x = x;
@@ -18,16 +20,27 @@ public abstract class Entity {
         if(!sector.isBlocked(x, y) && sector.inBounds(x, y)){
             sector.entities.add(this);
         }else throw new InvalidPositionException();
+
+        id = Map.generateEntityNum();
+
     }
 
     public void tick(){}
 
-    public int getXPosition(){
-        return x;
-    }
-
     public String getType(){
         return type;
+    }
+
+    public int getSectorX(){
+        return sectorX;
+    }
+
+    public int getSectorY(){
+        return sectorY;
+    }
+
+    public int getXPosition(){
+        return x;
     }
 
     public int getYPosition(){
@@ -38,7 +51,7 @@ public abstract class Entity {
         return energy;
     }
 
-    public void setEnergy(float energy){
+    public void setEnergy(float energy) throws InvalidPositionException {
         this.energy = energy;
     }
 

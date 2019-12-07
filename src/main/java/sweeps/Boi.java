@@ -2,6 +2,8 @@ package sweeps;
 
 public class Boi extends Entity{
 
+    private boolean isDead = false;
+
     public static final float MOVEMENT_COST = 1;
     public static enum  Direction{
         north,
@@ -46,6 +48,20 @@ public class Boi extends Entity{
             return true;
         }
         else return false;
+
+    }
+
+    @Override
+    public void setEnergy(float energy) throws InvalidPositionException {
+        super.setEnergy(energy);
+        if(energy <= 0){
+            Map.getSector(getSectorX(), getSectorY()).entities.remove(this);
+            isDead = true;
+        }
+    }
+
+    public Boolean getIsDead(){
+        return isDead;
     }
 
 }
