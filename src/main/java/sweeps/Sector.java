@@ -16,8 +16,8 @@ public class Sector implements Serializable {
     public ArrayList<Entity> entities = new ArrayList<>();
 
     public Sector(){
-        for(int x = 0; x < SECTOR_WIDTH; x++){
-            for(int y = 0; y < SECTOR_HEIGHT; y++){
+        for(int y = 0; y < SECTOR_WIDTH; y++){
+            for(int x = 0; x < SECTOR_HEIGHT; x++){
                 map[x][y] = (int)Math.round(Math.random());
             }
         }
