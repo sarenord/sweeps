@@ -3,7 +3,9 @@ package sweeps;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Sector {
+import java.io.Serializable;
+
+public class Sector implements Serializable {
 
     public static final int SECTOR_HEIGHT = 25;
     public static final int SECTOR_WIDTH = 25;

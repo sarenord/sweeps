@@ -3,7 +3,9 @@ package sweeps;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Map {
+import java.io.Serializable;
+
+public class Map implements Serializable {
 
     public static final int WORLD_HEIGHT = 10;
     public static final int WORLD_WIDTH = 10;
