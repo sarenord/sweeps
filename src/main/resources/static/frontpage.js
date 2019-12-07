@@ -1,3 +1,7 @@
+document.onload = function() {
+    getMap();
+}
+
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -65,4 +69,16 @@ function getSector(x, y, callback) {
 	    callback(status, xhr.response);
 	}
     };
+}
+
+
+function getApiKey() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/getNewAPIKey', true);
+    xhr.responseType = 'json';
+    xhr.send();
+    xhr.onload = function() {
+	var p = document.getElementById("display");
+	p.innerHTML += xhr.response;
+    }
 }
