@@ -13,8 +13,8 @@ public class Boi extends Entity{
         return energy;
     }
 
-    public void setEnergy(flaot energy){
-        ths.energy = energy;
+    public void setEnergy(float energy){
+        this.energy = energy;
     }
 
 
