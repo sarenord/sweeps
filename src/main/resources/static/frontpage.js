@@ -43,14 +43,18 @@ function renderMap(data) {
 }
 
 function drawTheBoiz(entities) {
+    console.log(entities);
     var canvas = document.getElementById("mapCanv");
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = '#007733';
     for (var i=0; i<entities.length; i++) {
+	if (entities[i].type == "energy_source") {
+	    ctx.fillStyle = '#FFFF00';
+	}
 	let cx = 25*entities[i].xposition+13;
 	let cy = 25*entities[i].yposition+13;
 	ctx.beginPath();
-	ctx.arc(cx, cy, 13, 0, 2*Math.PI);
+	ctx.arc(cx, cy, 12, 0, 2*Math.PI);
 	ctx.fill();
     }
 }
