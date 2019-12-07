@@ -15,7 +15,7 @@ public class API {
         return Map.toJson();
     }
 
-    @RequestMapping(value = "/api/getSector", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/getSector", method = RequestMethod.PUT)
     String getSector(@RequestBody GetSectorJSON json) throws JsonProcessingException {
         return Map.getSector(json.x, json.y).toJson();
     }
