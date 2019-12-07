@@ -9,4 +9,17 @@ public abstract class Entity {
         this.y = y;
     }
 
+    public int getXPosition(){
+        return x;
+    }
+
+    public int getYPosition(){
+        return y;
+    }
+
+    public void setPosition(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
 }

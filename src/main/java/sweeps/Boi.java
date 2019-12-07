@@ -8,4 +8,14 @@ public class Boi extends Entity{
         super(x, y);
         this.energy = energy;
     }
+
+    public float getEnergy(){
+        return energy;
+    }
+
+    public void setEnergy(flaot energy){
+        ths.energy = energy;
+    }
+
+
 }
