@@ -3,17 +3,15 @@ const baseUrl='localhost:8080/api/';
 
 function getMap() {
     var url = baseUrl + 'getMap/';
-    Http.open("GET", url);
+    Http.open("GET", "http://localhost:8080/api/getMap/");
     Http.send();
     Http.onreadystatechange = (e) => {
-	renderMap(http.responseText);
+	console.log('JSON: ' + Http.responseText);
+	renderMap(Http.responseText);
     }
 }
 
 function renderMap(mapObject) {
-    var canvas = getElementById("mapCanv");
-    var map = json.parse(mapObject);
-
-
-
+    var canvas = document.getElementById("mapCanv");
+    var map = JSON.parse(mapObject);
 }
