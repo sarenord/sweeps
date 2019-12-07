@@ -8,8 +8,8 @@ public class EnergySource extends Entity{
 
     private float energy = MAX_ENERGY;
 
-    public EnergySource(int x, int y){
-        super(x, y, "energy_source");
+    public EnergySource(int x, int y, int sectorX, int sectorY) throws InvalidPositionException {
+        super(x, y, sectorX, sectorY, "energy_source");
     }
 
     public float pullEnergy(){
