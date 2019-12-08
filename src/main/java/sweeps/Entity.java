@@ -1,5 +1,7 @@
 package sweeps;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public abstract class Entity {
     private int x, y;
     private int sectorX, sectorY;
@@ -26,6 +28,10 @@ public abstract class Entity {
     }
 
     public void tick(){}
+
+    public int getID(){
+        return id;
+    }
 
     public String getType(){
         return type;
@@ -60,8 +66,9 @@ public abstract class Entity {
         this.y = y;
     }
 
+    @JsonIgnore
     public Sector getSector() throws InvalidPositionException {
-        return Map.getSector(x, y);
+        return Map.getSector(sectorX, sectorY);
     }
 
 }

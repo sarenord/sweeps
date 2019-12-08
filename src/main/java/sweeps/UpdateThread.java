@@ -10,12 +10,14 @@ public class UpdateThread extends Thread {
             for(Entity n : i.entities){
                 n.tick();
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } //TODO: why u no work!?
+
+        System.out.println("ticktock");
 
     }
 }

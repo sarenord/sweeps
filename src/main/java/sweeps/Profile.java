@@ -21,8 +21,16 @@ public class Profile implements Serializable{
         return owned;
     }
 
-    public Entity getEntityByID(){
-        for(Entity i : owned)
+    public Entity getEntityByID(int id){
+        Entity n = null;
+
+        for(Entity i : owned){
+            if(i.getID() == id) n = i;
+
+        }
+        if( n != null && n.getEnergy() <= 0) owned.remove(n);
+
+        return n;
     }
 
 }

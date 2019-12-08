@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import sweeps.call_templates.AuthAPIKeyJSON;
+import sweeps.call_templates.CommandBoiJSON;
 import sweeps.call_templates.CreateBoiJSON;
 import sweeps.call_templates.GetSectorJSON;
 
@@ -45,6 +46,43 @@ public class API {
         return new ObjectMapper().writeValueAsString("failure");
     }
 
+    @RequestMapping(value = "/api/commandBoi", method = RequestMethod.PUT)
+    String commandBoi(@RequestBody CommandBoiJSON json) throws JsonProcessingException, NoSuchAlgorithmException, InvalidPositionException {
+        Profile profile = Profiles.getProfile(json.key);
+
+        Entity e = profile.getEntityByID(json.id);
+
+        Boi.Direction direction;
+
+        switch (json.direction){
+            case "north":
+                direction = Boi.Direction.north;
+                break;
+
+            case "south":
+                direction = Boi.Direction.south;
+                break;
+
+            case "east":
+                direction = Boi.Direction.east;
+                break;
+
+            case "west":
+                direction = Boi.Direction.west;
+                break;
+
+            default:
+                return new ObjectMapper().writeValueAsString("failure");
+        }
+
+        switch(json.command){
+            case "move":
+                ((Boi)e).moveBoi(direction);
+                return new ObjectMapper().writeValueAsString("success");
+        }
+
+        return new ObjectMapper().writeValueAsString("failure");
+    }
 
 
 

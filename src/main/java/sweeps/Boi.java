@@ -1,5 +1,7 @@
 package sweeps;
 
+import java.util.Arrays;
+
 public class Boi extends Entity{
 
     private boolean isDead = false;
@@ -45,6 +47,13 @@ public class Boi extends Entity{
 
         if(!getSector().isBlocked(newX, newY)){
             setPosition(newX, newY);
+            for(int[] n : getSector().map ){
+                for(int i : n){
+                    System.out.print(i);
+                }
+                System.out.println();
+            }
+            System.out.println();
             return true;
         }
         else return false;
@@ -55,7 +64,7 @@ public class Boi extends Entity{
     public void setEnergy(float energy) throws InvalidPositionException {
         super.setEnergy(energy);
         if(energy <= 0){
-            Map.getSector(getSectorX(), getSectorY()).entities.remove(this);
+            getSector().entities.remove(this);
             isDead = true;
         }
     }
