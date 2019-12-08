@@ -47,13 +47,6 @@ public class Boi extends Entity{
 
         if(!getSector().isBlocked(newX, newY)){
             setPosition(newX, newY);
-            for(int[] n : getSector().map ){
-                for(int i : n){
-                    System.out.print(i);
-                }
-                System.out.println();
-            }
-            System.out.println();
             return true;
         }
         else return false;

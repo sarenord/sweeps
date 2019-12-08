@@ -28,8 +28,6 @@ public class Sector implements Serializable {
             }
         }
 
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
-
     }
 
     public boolean inBounds(int x, int y){
@@ -37,14 +35,7 @@ public class Sector implements Serializable {
     }
 
     public boolean isBlocked(int x, int y){
-        for(int[] n : map ){
-            for(int i : n){
-                System.out.print(i);
-            }
-            System.out.println();
-        }
 
-        System.out.println();
         if(!inBounds(x, y)) return true;
 
         if(map[x][y] != 0) return true;

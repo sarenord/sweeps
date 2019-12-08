@@ -1,23 +1,22 @@
 package sweeps;
 
-public class UpdateThread extends Thread {
-
+public class UpdateThread implements Runnable{
     @Override
     public void run() {
-        super.run();
+        while (true) {
+            try {
 
-        for(Sector i : Map.getSectors()){
-            for(Entity n : i.entities){
-                n.tick();
+                for (Sector i : Map.getSectors()) {
+                    for (Entity n : i.entities) {
+                        n.tick();
+                    }
+                }
+
+                Thread.sleep(1000);
+
+            } catch (Exception e) {
+                System.out.println(e.toString());
             }
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } //TODO: why u no work!?
-
-        System.out.println("ticktock");
-
     }
 }
